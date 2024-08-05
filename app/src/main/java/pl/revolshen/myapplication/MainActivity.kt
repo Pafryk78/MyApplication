@@ -1,5 +1,6 @@
 package pl.revolshen.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -9,12 +10,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import pl.revolshen.myapplication.databinding.ActivityMainBinding
 
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val mainVm by viewModels<MainViewModel>()
-
-    //private var click = 0
-    private val Click_key = "Click_key"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,24 +26,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        /*
-        if(savedInstanceState != null){
-            click = savedInstanceState.getInt(Click_key)
-            binding.myText.text = click.toString()
+
+
+        binding.myButton.setOnClickListener {
+            val textData = binding.myEditText.text.toString()
+            val explicitIntent = Intent(applicationContext, MainActivity2::class.java)
+            explicitIntent.putExtra("TEXT_DATA", textData)
+            startActivity(explicitIntent)
         }
-    */
-        binding.myText.text = mainVm.click.toString()
-        binding.myButton.setOnClickListener{
-            mainVm.click += 1
-            binding.myText.text = mainVm.click.toString()
-
-        }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        //outState.putInt("Click_key", click)
-
     }
 
 }
