@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import pl.revolshen.myapplication.databinding.ActivityMainBinding
@@ -30,9 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.myButton.setOnClickListener {
             val textData = binding.myEditText.text.toString()
-            val explicitIntent = Intent(applicationContext, MainActivity2::class.java)
+            /*val explicitIntent = Intent(applicationContext, MainActivity2::class.java)
             explicitIntent.putExtra("TEXT_DATA", textData)
-            startActivity(explicitIntent)
+            startActivity(explicitIntent)*/
+
+            val implicitIntent = Intent(Intent.ACTION_DIAL)
+            implicitIntent.data = "tel:$textData".toUri()
+            val chooserIntent = Intent.createChooser(implicitIntent, "Wybierz aplikacje")
+            startActivity(implicitIntent)
+
         }
     }
 
