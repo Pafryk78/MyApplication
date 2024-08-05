@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import pl.revolshen.myapplication.databinding.ActivityMainBinding
 
 
@@ -28,19 +29,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
-        binding.myButton.setOnClickListener {
-            val textData = binding.myEditText.text.toString()
-            /*val explicitIntent = Intent(applicationContext, MainActivity2::class.java)
-            explicitIntent.putExtra("TEXT_DATA", textData)
-            startActivity(explicitIntent)*/
-
-            val implicitIntent = Intent(Intent.ACTION_DIAL)
-            implicitIntent.data = "tel:$textData".toUri()
-            val chooserIntent = Intent.createChooser(implicitIntent, "Wybierz aplikacje")
-            startActivity(implicitIntent)
-
-        }
+        val adapter = MyFirstAdapter(createContact())
+        binding.recyclerView.layoutManager = LinearLayoutManager(applicationContext)
+        binding.recyclerView.adapter = adapter
     }
-
+private fun createContact(): List<Contact> = buildList {
+    for(i in 1..100){
+        val newContact = Contact("$i","2*$i")
+        add(newContact)
+    }
+}
 }
