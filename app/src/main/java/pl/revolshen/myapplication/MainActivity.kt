@@ -8,13 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import pl.revolshen.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
     private val mainVm by viewModels<MainViewModel>()
 
-    //private var click = 0
+
     private val Click_key = "Click_key"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,15 +26,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        val firstFragment = FirstFragment()
-        val secondFragment = SecondFragment()
-
-    supportFragmentManager.commit {
-        addToBackStack(null)
-        add(R.id.firstContainer, firstFragment,null)
-        add(R.id.secondContainer, secondFragment,null)
-
+    val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+    navController = navHostFragment.navController
 
     }
     }
-}

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import pl.revolshen.myapplication.databinding.FragmentFirstBinding
 import pl.revolshen.myapplication.databinding.FragmentSecondBinding
 
@@ -25,7 +26,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.FirstButton.setOnLongClickListener {
-            Toast.makeText(requireContext(), "Long Click - first fragment", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
             true
         }
     }
