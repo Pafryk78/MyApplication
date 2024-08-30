@@ -4,20 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF0000"
-    tools:context=".SecondFragment">
+    tools:context=".StartFragment">
 
-
-    <Button
-        android:id="@+id/FirstButton"
+    <TextView
+        android:id="@+id/startText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Fragment"
-
+        android:text="Tinderu"
+        android:textSize="50sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Gorący programiści w twojej okolicy - sprawdz teraz"
+        app:layout_constraintEnd_toEndOf="@+id/startText"
+        app:layout_constraintStart_toStartOf="@+id/startText"
+        app:layout_constraintTop_toBottomOf="@+id/startText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

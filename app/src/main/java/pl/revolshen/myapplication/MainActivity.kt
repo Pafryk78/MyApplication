@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val mainVm by viewModels<MainViewModel>()
 
 
-    private val Click_key = "Click_key"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

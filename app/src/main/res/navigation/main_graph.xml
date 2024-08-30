@@ -3,23 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/firstFragment">
-
+    app:startDestination="@id/startFragment">
     <fragment
-        android:id="@+id/firstFragment"
-        android:name="pl.revolshen.myapplication.FirstFragment"
-        android:label="FirstFragment" >
+        android:id="@+id/startFragment"
+        android:name="pl.revolshen.myapplication.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/secondFragment"
+            android:id="@+id/action_startFragment_to_userListFragment"
+            app:destination="@id/userListFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="pl.revolshen.myapplication.SecondFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        android:id="@+id/userListFragment"
+        android:name="pl.revolshen.myapplication.UserListFragment"
+        android:label="fragment_user_list"
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_userListFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="pl.revolshen.myapplication.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>
