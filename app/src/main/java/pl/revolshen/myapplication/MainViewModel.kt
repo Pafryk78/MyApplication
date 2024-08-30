@@ -7,27 +7,27 @@ private val user1 =
         name = "Tomo",
         surname = "Szulc",
         technology = "Szulcow",
-        image = R.drawable.szulc,
         birthdate = "2002-01-01",
-        city = "Łódź"
+        city = "Łódź",
+        image = R.drawable.szulc
     )
 private val user2 =
     User(
         name = "Maciej",
         surname = "Zberzeźny",
         technology = "Raptorek",
-        image = R.drawable.zberzezny,
         birthdate = "2003-01-01",
-        city = "Łódź"
+        city = "Łódź",
+        image = R.drawable.zberzezny
     )
 private val user3 =
     User(
         name = "Taylor",
         surname = "Swift",
         technology = "Singer",
-        image = R.drawable.ts,
         birthdate = "1000-01-01",
-        city = "Los Kebabos"
+        city = "Los Kebabos",
+        image = R.drawable.ts
     )
 
 private val data = listOf(user1, user2, user3)

@@ -34,7 +34,7 @@ class DetailFragment : Fragment() {
     private fun bindUserData(user: User?) {
         user?: return
         binding.imageView.setImageResource(user.image)
-        binding.nameTv.text = "${user.name} $user.surname"
+        binding.nameTv.text = "${user.name} ${user.surname}"
         binding.technologyTv.text = user.technology
         binding.birthdateTv.text = user.birthdate
         binding.cityTv.text = user.city
